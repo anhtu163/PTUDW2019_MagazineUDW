@@ -3,9 +3,12 @@
   font-weight: 300;
   font-size: 12px;
 }
+body{
+  padding: 0 180px;
+}
 .container{
  display: flex;
-padding: 0 180px;
+
 
 }
 .container .container-left{
@@ -15,6 +18,7 @@ padding: 0 180px;
   width: 100%;
 
 }
+
 .container .container-left .tb-news span a{
   color: #111;
   padding: 2px;
@@ -47,7 +51,7 @@ padding: 0 180px;
   padding: 0 15px;
 }
 
-.container .container-right h2{
+.container h2{
   text-transform: uppercase;
   color: #78B43D;
 }
@@ -55,4 +59,13 @@ padding: 0 180px;
   background: #78B43D;
   height: 2px;
   margin: 5px 0;
+}
+.lined2{
+  background: tomato;
+  height: 2px;
+  margin: 5px 0;
+}
+.thong-tin-doanh-nghiep h2{
+  text-transform: uppercase;
+  color: tomato;
 }
