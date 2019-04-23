@@ -1,10 +1,10 @@
 /******************************************************************
-Theme Name: Magazine 
-Description: 
+Theme Name: Magazine
+Description:
 Author: Colorlib
-Author URI: 
+Author URI:
 Version: 1.0
-Created: 
+Created:
 ******************************************************************/
 /*------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ Created:
 	1.3	Flexbox
 	1.4	Reset
 2.  Elements
-3.  Menu Style 
+3.  Menu Style
 4.  Sidebar Style
 5.  Archive Style
 6.  About Style
@@ -46,7 +46,7 @@ $black			: #222;
 
 */
 /* =================================== */
-/*  Basic Style 
+/*  Basic Style
 /* =================================== */
 ::-moz-selection {
   /* Code for Firefox */
@@ -92,10 +92,10 @@ $black			: #222;
 }
 
 body {
-  color: #777777;
-  font-family: "Poppins", sans-serif;
+  color: #111;
+  font-family: "Poppins",inherit;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.625em;
   position: relative;
 }
@@ -2367,6 +2367,11 @@ body {
   background: #fff;
 }
 
+.social-network-widget .social-list .icons .fa-twitter {
+  color: #69c9ff;
+  background: #fff;
+}
+
 .social-network-widget .social-list .icons .fa-youtube-play {
   color: #c41713;
   background: #fff;
@@ -3268,7 +3273,7 @@ div.thumbnail_container .overlay-bg {
   width: 25%;
 }
 
-.footer-area .single-footer-widget .instafeed li img {
+.footer-area .single-footer-widget .instafeed li  {
   margin: 5px;
 }
 
