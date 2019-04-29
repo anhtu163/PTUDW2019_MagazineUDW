@@ -48,47 +48,39 @@
           <div class="menu-sidebar__content js-scrollbar1">
               <nav class="navbar-sidebar">
                   <ul class="list-unstyled navbar__list">
-                      <li class="active has-sub">
-                          <a class="js-arrow" href="index.html">
-                              <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-
-                      </li>
-
-                      <li>
-                          <a href="confirm-posting.html">
-                              <i class="fas fa-table"></i>Duyệt bài</a>
-                      </li>
-                      <li>
-                          <a href="posting.html">
-                              <i class="far fa-check-square"></i>Đăng bài</a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <i class="fas fa-calendar-alt"></i>Calendar</a>
-                      </li>
-                      <li>
-                          <a href="map.html">
-                              <i class="fas fa-map-marker-alt"></i>Maps</a>
-                      </li>
-                      <li class="has-sub">
-                          <a class="js-arrow" href="#">
-                              <i class="fas fa-copy"></i>Pages</a>
-                          <ul class="list-unstyled navbar__sub-list js-sub-list">
-                              <li>
-                                  <a href="login.html">Login</a>
-                              </li>
-                              <li>
-                                  <a href="register.html">Register</a>
-                              </li>
-                              <li>
-                                  <a href="forget-pass.html">Forget Password</a>
-                              </li>
-                          </ul>
-                      </li>
-                      <li class="has-sub">
-                          <a class="js-arrow" href="#">
-                              <i class="fas fa-desktop"></i>UI Elements</a>                   
-                      </li>
+                    <li class="active has-sub">
+                        <a class="js-arrow" href="index.html">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        <a href="confirm-posting.html">
+                            <i class="fas fa-table"></i>Duyệt bài</a>
+                    </li>
+                    <li>
+                        <a href="posting.html">
+                            <i class="far fa-check-square"></i>Đăng bài</a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-copy"></i>Danh sách bài đăng</a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a href="index.html">Đã duyệt</a>
+                            </li>
+                            <li>
+                                <a href="index.html">Đang chờ duyệt</a>
+                            </li>
+                            <li>
+                                <a href="index.html">Bị từ chối</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="employee.html">
+                            <i class="far fa-check-square"></i>Quản lý nhân viên</a>
+                    </li>
+                    <li>
+                        <a href="readers.html">
+                            <i class="far fa-check-square"></i>Quản lý độc giả</a>
+                    </li>
                   </ul>
               </nav>
           </div>
@@ -240,7 +232,26 @@
                                                     <div class="col-12 col-md-9">
                                                         <textarea id="note-input" rows="5" name="text-input" placeholder="Mô tả cho tác giả" class="form-control"></textarea>
                                                     </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label class=" form-control-label">Tình trạng</label>
                                                 </div>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="radio1" class="form-check-label ">
+                                                                <input type="radio" id="radio1" name="publish-checkbox" value="option1" class="form-check-input">Xuất bản
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="radio2" class="form-check-label ">
+                                                                <input type="radio" id="radio2" name="publish-checkbox" value="option2" class="form-check-input">Chưa xuất bản
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                     <div class="card-footer">

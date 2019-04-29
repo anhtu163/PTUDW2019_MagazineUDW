@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Hiệu chỉnh bài viết</title>
+    <title>Chỉnh sửa nhân viên</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -155,76 +155,85 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Hiệu chỉnh bài viết</strong> 
+                                        <strong>Chỉnh sửa nhân viên</strong> 
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">              
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="title-input" class=" form-control-label">Tiêu đề</label>
+                                                    <label for="name-input" class=" form-control-label">Họ Tên</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="title-input" name="text-input" placeholder="Tiêu đề đang muốn hiệu chỉnh" class="form-control">
-                                                    <small class="form-text text-muted">Tiêu đề không dài quá 50 từ</small>
+                                                    <input type="text" id="name-input" name="name-input" placeholder="Lê Thanh Tâm" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Chuyên mục</label>
+                                                    <label for="birthday-input" class=" form-control-label">Ngày Sinh</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select name="select" id="select" class="form-control">
-                                                        <option value="0">Phim hot</option>
-                                                        <option value="1">Quân Sự</option>
-                                                        <option value="2">Thế giới</option>
-                                                        <option value="3">Thể thao</option>
-                                                    </select>
+                                                    <input type="text" id="birthday-input" name="birthday-input" placeholder="09/06/1997" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="summary-input" class=" form-control-label">Tóm tắt nội dung</label>
+                                                    <label for="gender-input" class=" form-control-label">Giới tính</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea name="summary-input" id="textarea-input" rows="6" placeholder="Nội dung tóm tắt cần được hiệu chỉnh" class="form-control"></textarea>
+                                                    <input type="text" id="gender-input" name="gender-input" placeholder="Nam" class="form-control">
                                                 </div>
                                             </div>
-
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="content-input" class=" form-control-label">Nội dung bài viết</label>
+                                                    <label for="position-input" class=" form-control-label">Chức vụ</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea name="content-input" id="textarea-input" rows="13" placeholder="Nội dung bài viết" class="form-control"></textarea>
+                                                    <input type="text" id="position-input" name="position-input" placeholder="Biên tập viên" class="form-control">
                                                 </div>
                                             </div>
-                                            
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="url-input" class=" form-control-label">Link Youtube</label>
+                                                    <label class=" form-control-label">Chuyên mục</label>
                                                 </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="url-input" name="text-input" placeholder="link Youtube" class="form-control">
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="file-multiple-input" class=" form-control-label">File hình ảnh</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"> 
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="checkbox">
+                                                            <label for="checkbox1" class="form-check-label ">
+                                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="phimhot" class="form-check-input">Phim Hot
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label for="checkbox2" class="form-check-label ">
+                                                                <input type="checkbox" id="checkbox2" name="checkbox2" value="congnghe" class="form-check-input">Công nghệ
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label for="checkbox3" class="form-check-label ">
+                                                                <input type="checkbox" id="checkbox3" name="checkbox3" value="thoitrang" class="form-check-input">Thời Trang
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label for="checkbox4" class="form-check-label ">
+                                                                <input type="checkbox" id="checkbox4" name="checkbox4" value="quansu" class="form-check-input">Quân Sự
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label for="checkbox5" class="form-check-label ">
+                                                                <input type="checkbox" id="checkbox5" name="checkbox5" value="thegioi" class="form-check-input">Thế Giới
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                            <i class="fa fa-chevron-circle-down"></i> Update
                                         </button>
                                         <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reset
+                                            <i class="fa fa-retweet"></i> Reset
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash-o"></i> Xoá nhân viên
                                         </button>
                                     </div>
                                 </div>
