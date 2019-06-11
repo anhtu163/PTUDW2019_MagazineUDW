@@ -154,20 +154,23 @@
                             <div class="col-lg-9">
                                 <h2 class="title-1 m-b-25">Danh sách bài đã đăng</h2>
                                 <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning" id="tbl-posting">
+                                    <form action="edit-posting.html" method="GET">
+                                        <table class="table table-borderless table-striped table-earning" id="tbl-posting">
                                         <thead>
                                             <tr>
                                                 <th>Tên bài</th>
                                                 <th>Ngày đăng</th>
                                                 <th>thể loại</th>
                                                 <th>Xuất bản</th>
-                           
                                             </tr>
+                                            
+                                        </thead>
+                                        <tbody>
                                             <tr>
-                                              <td>Bom tấn "Avengers: End Game".</td>
-                                              <td>21/04/2019</td>
-                                              <td>Phim Hot</td>
-                                              <td><input type="checkbox" disabled></td>
+                                                <td>Bom tấn "Avengers: End Game".</td>
+                                                <td>21/04/2019</td>
+                                                <td>Phim Hot</td>
+                                                <td><input type="checkbox" disabled></td>
                                             </tr>
                                             <tr>
                                                 <td>Tèo Em.</td>
@@ -181,11 +184,10 @@
                                                 <td>Phim kinh dị</td>
                                                 <td><input type="checkbox" disabled></td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!--Bổ sung sau-->
                                         </tbody>
                                     </table>
+                                    </form>
+                                    
                                 </div>
                             </div>
                            
@@ -232,6 +234,9 @@
     <script>
         $(document).ready(function(){
             $('#tbl-posting tr').click(function(){
+                var trSelected = $(this).data();
+                alert(trSelected[0]);
+                localStorage.setItem('trSelected', trSelected);
                 window.location.replace("edit-posting.html");
             })
         })

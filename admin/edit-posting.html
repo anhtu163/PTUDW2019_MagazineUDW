@@ -158,6 +158,7 @@
                                         <strong>Hiệu chỉnh bài viết</strong> 
                                     </div>
                                     <div class="card-body card-block">
+                                        <!--BEGIN A FORM-->
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">              
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
@@ -218,6 +219,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <!--END FORM-->
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm">
@@ -259,6 +261,10 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script>
+        var x = localStorage.getItem('trSelected');
+       console.log(x.innerHTML);
+    </script>
 
 </body>
 
