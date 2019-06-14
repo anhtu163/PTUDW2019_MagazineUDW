@@ -1,0 +1,48 @@
+	<div class="site-main-container">
+		
+		<section class="latest-post-area pb-120">
+			<div class="container no-padding">
+				<div class="row">
+					<div class="col-lg-8 post-list">
+						<!-- Start latest-post Area -->
+						<div class="latest-post-wrap">
+                            {{#each this.category1}}
+                            <h4 class="cat-title">{{CatName}}</h4>
+                            {{/each}}
+							
+                            {{#each this.news}}
+							<div class="single-latest-post row align-items-center">
+								<div class="col-lg-5 post-left">
+									<div class="feature-img relative">
+										<div class="overlay overlay-bg"></div>
+										<img class="img-fluid" src="/img/{{Avatar}}" alt="">
+									</div>
+									<ul class="tags">
+										<li><a href="#">{{CatName}}</a></li>
+									</ul>
+								</div>
+								<div class="col-lg-7 post-right">
+									<a href="/news/{{PostID}}/post">
+										<h4>{{Title}}</h4>
+									</a>
+									<ul class="meta">
+										<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+										<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a>
+										</li>
+										<li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+									</ul>
+									<p class="excert">
+										{{SumContent}}
+									</p>
+								</div>
+							</div>
+							{{/each}}		
+						</div>
+						<!-- End relavent-story-post Area -->
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<!-- End latest-post Area -->
+	</div>
