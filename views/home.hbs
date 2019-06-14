@@ -18,24 +18,14 @@
                                     
                                 </thead>
                                 <tbody>
+                                    {{#each this.news}}
                                     <tr>
-                                        <td>Bom tấn "Avengers: End Game".</td>
-                                        <td>21/04/2019</td>
-                                        <td>Phim Hot</td>
+                                        <td>{{Title}}</td>
+                                        <td>{{Date}}</td>
+                                        <td>{{CatName}}</td>
                                         <td><input type="checkbox" disabled></td>
                                     </tr>
-                                    <tr>
-                                        <td>Tèo Em.</td>
-                                        <td>26/04/2019</td>
-                                        <td>Phim Hot</td>
-                                        <td><input type="checkbox" disabled></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phim "Con rết người"</td>
-                                        <td>26/04/2019</td>
-                                        <td>Phim kinh dị</td>
-                                        <td><input type="checkbox" disabled></td>
-                                    </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                             </form>

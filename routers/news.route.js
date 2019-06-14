@@ -18,4 +18,29 @@ router.get('/:id/post',(req,res)=>{
     });
 })
 
+router.get('/:id/category', (req, res) => {
+    var Id = req.params.id;
+    //console.log(Id);
+    newsModel.newsByCat(Id)
+        .then(rows => {
+            categoryModel.catById(Id)
+                .then(row1s => {
+                    res.render('newsByCat', {
+                        news: rows,
+                        category: row1s
+
+                    });
+
+                }).catch(err => {
+                    console.log(err);
+                    res.end('error occured');
+                });
+            
+        }).catch(err => {
+            console.log(err);
+            res.end('error occured');
+        });
+})
+
+
 module.exports = router;
