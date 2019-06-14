@@ -22,28 +22,25 @@ app.get('/', (req, res) => {
     //res.render('home');
 
     var p = newsModel.all();
-    var p1 = newsModel.three_of_all();
+    var p1 = newsModel.lastest_news();
     var p2 = categoryModel.all();
-    
-    p.then(rows => {
-        p1.then(row1s => {
-            p2.then(row2s =>{
-            res.render("home", {
-                
-                news: rows,
-                news1: row1s,
-                category: row2s
-             });
-            }).catch(err => {
-                console.log(err);
-            });
-        }).catch(err => {
-            console.log(err);
+    var p3 = newsModel.top_news_1();
+    var p4 = newsModel.top_news_2();
+
+    Promise.all([p,p1,p2,p3,p4]).then(([rows,row1s,row2s,row3s,row4s])=>{
+        res.render("home", {
+
+            news: rows,
+            news1: row1s,
+            category: row2s,
+            top1: row3s,
+            top2: row4s
         });
-        
     }).catch(err => {
         console.log(err);
     });
+    
+    
 })
 
 /*app.get('/image-post', (req, res) => {
