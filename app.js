@@ -65,7 +65,7 @@ app.get('/about', (req, res) => {
 app.use('/admin/dashboard',require('./routers/admin/admin-router'));
 app.use('/news', require('./routers/news.route'));
 
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
     next(createError(404));
 })
 
@@ -82,7 +82,7 @@ app.use((err, req, res, next) => {
         msg,
         error
     })
-})*/
+})
 
 
 app.listen(3000,()=>{
