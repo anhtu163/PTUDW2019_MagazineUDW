@@ -15,6 +15,7 @@ module.exports = {
     },
     newsByCat: id => {
         return db.load(`select * from post inner join category on post.CatID = category.CatID inner join user on post.CreatorID = user.id where post.CatID = ${id} `);
-    }
+    },
+    
 
 }

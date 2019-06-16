@@ -6,8 +6,12 @@ var newsModel = require("./models/news.model");
 var categoryModel = require("./models/category.model");
 var groupModel = require("./models/group_category.model");
 
+var bodyParser = require('body-parser');
 var app = express();
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.engine('hbs',exphbs({
@@ -38,9 +42,6 @@ app.get('/', (req, res) => {
         
             
             })
-        console.log(row3s[0].GroupName);
-        console.log(row2s.catByGroupID(1));
-            
         }).catch(err => {
         console.log(err);
     });
@@ -75,8 +76,12 @@ app.get('/', (req, res) => {
 //     res.render('about');
 // })
 
-// app.use('/admin/dashboard',require('./routers/admin/admin-router'));
-// app.use('/news', require('./routers/news.route'));
+//app.use('/admin/dashboard',require('./routers/admin/admin-router'));
+app.use('/writer', require('./routers/writer/writer.route'));
+app.use('/admin', require('./routers/admin/admin.route'));
+app.use('/editor', require('./routers/editor/editor.route'));
+//app.use('/news', require('./routers/news.route'));
+
 
 app.listen(3000,()=>{
     console.log('web Server is running at http://localhost:3000');
