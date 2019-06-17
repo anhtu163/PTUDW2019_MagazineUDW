@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.engine('hbs',exphbs({
-    defaultLayout: 'main.hbs',
+    defaultLayout: 'writer.main.hbs',
     layoutsDir :'views/_layouts',
     
 }));
@@ -65,37 +65,35 @@ app.get('/about', (req, res) => {
     res.render('about');
 })
 
-app.use('/admin/dashboard',require('./routers/admin/admin-router'));
-app.use('/news', require('./routers/news.route'));
-
-app.use((req, res, next) => {
-    next(createError(404));
-})
-
-app.use((err, req, res, next) => {
-    var status = err.status || 500;
-    var errorView = 'error';
-    if (status === 404)
-        errorView = '404';
-
-    var msg = err.message;
-    var error = err;
-    res.status(status).render(errorView, {
-        layout: false,
-        msg,
-        error
-    })
-})
-
-<<<<<<< HEAD
 //app.use('/admin/dashboard',require('./routers/admin/admin-router'));
+app.use('/news', require('./routers/news.route'));
 app.use('/writer', require('./routers/writer/writer.route'));
 app.use('/admin', require('./routers/admin/admin.route'));
 app.use('/editor', require('./routers/editor/editor.route'));
+
+// app.use((req, res, next) => {
+//     next(createError(404));
+// })
+
+// app.use((err, req, res, next) => {
+//     var status = err.status || 500;
+//     var errorView = 'error';
+//     if (status === 404)
+//         errorView = '404';
+
+//     var msg = err.message;
+//     var error = err;
+//     res.status(status).render(errorView, {
+//         layout: false,
+//         msg,
+//         error
+//     })
+// })
+
+//app.use('/admin/dashboard',require('./routers/admin/admin-router'));
+
 //app.use('/news', require('./routers/news.route'));
 
-=======
->>>>>>> 91adbbd40ce2ed414cdb1585a940e05358860d23
 
 app.listen(3000,()=>{
     console.log('web Server is running at http://localhost:3000');

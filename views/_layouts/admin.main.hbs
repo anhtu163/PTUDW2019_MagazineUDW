@@ -20,7 +20,7 @@
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
     <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -179,10 +179,7 @@
                 window.location.replace("/admin/editReader");
             })
         })
-    </script>
-  
-<script>
-    var toolbarOptions = [
+            var toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],['image'],
 
@@ -208,8 +205,19 @@
     theme: 'snow'
 
 });
+  $('#saveButt').click(function(){
+      //get
+      var x = quill.getContents();
+      console.log(x);
+      //log xong bỏ chú thích 2 dòng dưới -> set = null = xoá
+      //nhớ ấn button
 
-</script>
+      //x = null;
+      //quill.setContents(x);
+    });
+
+    </script>
+  
 
 </body>
 

@@ -2,7 +2,7 @@ var db = require('../utils/db');
 
 module.exports = {
     all: () => {
-        return db.load('select * from post inner join category on post.`CatID` = category.`CatID` inner join user on post.`CreatorID` = user.`id` ORDER BY Date DESC ');
+        return db.load('select * from post inner join category on post.`CatID` = category.`CatID` inner join status on post.`IsPublish` = status.`ID` inner join user on post.`CreatorID` = user.`id` ORDER BY Date DESC ');
     },
     newsOrderByViewNum:() => {
         return db.load('select * from post inner join category on post.`CatID` = category.`CatID` inner join user on post.`CreatorID` = user.`id` ORDER BY ViewNum DESC LIMIT 5 OFFSET 1 ');
@@ -39,6 +39,15 @@ module.exports = {
         WHERE PostID = ${id}`);
         
     },
+    newsByStatus: id =>{
+        return db.load(`select * from post inner join category on post.CatID = category.CatID inner join status on post.IsPublish = status.ID inner join user on post.CreatorID = user.id where post.IsPublish = ${id} `);
+    },
+    updateNews: entity =>{
+        return db.update('post', 'PostID', entity);
+    },
+    addNews: entity=>{
+        return db.add('post', entity);
+    }
 
     
 
