@@ -129,8 +129,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     var status = err.status || 500;
     var errorView = 'error';
-    if (status === 404)
-        errorView = '404';
+  
 
     var msg = err.message;
     var error = err;

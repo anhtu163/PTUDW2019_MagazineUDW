@@ -26,7 +26,7 @@ router.get('/detailConfirm',(req, res)=>{
 
 router.get('/confirm',(req, res, next)=>{
     //Lọc bài chưa duyệt theo cat = 3
-    var p = news.newsByStatus(2);
+    var p = news.newsByStatusAndCate(req.user.CatID);
     //Lọc bài chưa duyệt
     //var p = news.newsByStatus(2);
     p.then((row)=>{
@@ -72,7 +72,7 @@ router.post('/confirm/:id', (req, res, next)=>{
         Date: req.body.datePublish
     }
     news.updateNews(entity);
-    var p = news.newsByStatus(2);
+    var p = news.newsByStatusAndCate(req.user.CatID);
     //Lọc bài chưa duyệt
     //var p = news.newsByStatus(2);
     p.then((row)=>{

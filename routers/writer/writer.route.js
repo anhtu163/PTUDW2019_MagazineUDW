@@ -49,6 +49,7 @@ today = yyyy + '-' + mm + '-' + dd;
         ViewNum: 0,
         SumContent: req.body.sumContent,
         CreatorID: req.user.ID,
+        Avatar: req.user.avatar,
         //Content: req.body.content.innerHTML
         Content: req.body.trick
      }
@@ -109,7 +110,7 @@ today = yyyy + '-' + mm + '-' + dd;
         PostID: id,
         Title: req.body.title,
         Date: today,
-        Avatar: "",
+        Avatar: req.body.avatar,
         IsPublish: 2,
         CatID: req.body.select,
         SumContent: req.body.sumContent,

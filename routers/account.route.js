@@ -43,7 +43,7 @@ router.post('/login', (req, res, next) => {
 router.get('/is-available', (req, res, next) => {
     var email = req.query.email;
     subscriberModel.singleByEmail(email).then(rows => {
-        if (rows[0].length > 0)
+        if (rows.length > 0)
             return res.json(false);
 
         return res.json(true);

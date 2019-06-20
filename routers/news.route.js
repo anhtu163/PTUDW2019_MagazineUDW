@@ -67,7 +67,7 @@ router.get('/:id/category', (req, res,next) => {
     if(pageNum < 1){
         pageNum = 1;
     }
-    var limit = 1;
+    var limit = 5;
     var offset = (pageNum - 1)*limit;
 
     

@@ -49,7 +49,7 @@ module.exports = {
         return db.load(`select * from post inner join category ON post.CatID = category.CatID inner join user ON post.CreatorID = user.ID  where IsPublish = 1 and Title LIKE '%${str}%' or Content LIKE '%${str}%' Order by IsPremium Desc`);
     },
     topNewsByCat: ()=>{
-        return db.load(`SELECT * FROM (SELECT * FROM post GROUP BY post.CatID DESC) AS p1 inner join category ON p1.CatID = category.CatID inner join user ON p1.CreatorID = user.ID `);
+        return db.load(`SELECT * FROM (SELECT * FROM post GROUP BY post.CatID DESC) AS p1 inner join category ON p1.CatID = category.CatID inner join user ON p1.CreatorID = user.ID WHERE IsPublish =1`);
     },
     newsByStatus: id => {
         return db.load(`select * from post inner join category on post.CatID = category.CatID inner join status on post.IsPublish = status.ID inner join user on post.CreatorID = user.id where post.IsPublish = ${id} `);
