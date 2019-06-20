@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
+   <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,7 +20,7 @@
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
     <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -33,6 +33,7 @@
 
     <!-- Main CSS-->
     <link href="/css/theme.css" rel="stylesheet" media="all">
+
 
 </head>
 
@@ -49,7 +50,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="/">
+                            <a>
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
@@ -84,25 +85,32 @@
                                 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
+                                        {{!-- <div class="image">
                                             <img src="/images/icon/avatar.jpg" alt="Huỳnh Anh" />
-                                        </div>
+                                        </div> --}}
+                                        {{#if isAuthenticated}}
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Huỳnh Anh</a>
+                                            <h5 class="name">
+                                                <a href="#">{{authUser.Name}}</a>
+                                            </h5>
+                                            <span class="email">{{authUser.Email}}</span>
                                         </div>
-                                        <div class="account-dropdown js-dropdown">
+                                        {{/if}}
+                                        {{!-- <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
                                                         <img src="/images/icon/avatar.jpg" alt="Huỳnh Anh" />
                                                     </a>
                                                 </div>
+                                                {{#if isAuthenticated}}
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Huỳnh Anh</a>
+                                                        <a href="#">{{authUser.Name}}</a>
                                                     </h5>
-                                                    <span class="email">glenntu163@gmail.com</span>
+                                                    <span class="email">{{authUser.Email}}</span>
                                                 </div>
+                                                {{/if}}
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
@@ -122,7 +130,7 @@
                                                 <a href="#">
                                                     <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -157,28 +165,11 @@
     <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="/vendor/select2/select2.min.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <!-- Main JS-->
     <script src="/js/main.js"></script>
     <script>
-        $(document).ready(function(){
-            })
-            $('#tbl-confirm-posting tr').click(function(){
-                var trSelected = $(this).data();
-                localStorage.setItem('trSelected', trSelected);
-                window.location.replace("/admin/detailConfirm");
-            })
-            $('#tbl-employees tr').click(function(){
-                var trSelected = $(this).data();
-                localStorage.setItem('trSelected', trSelected);
-                window.location.replace("/admin/editEmployee");
-            })
-            $('#tbl-readers tr').click(function(){
-                var trSelected = $(this).data();
-                localStorage.setItem('trSelected', trSelected);
-                window.location.replace("/admin/editReader");
-            })
-        })
             var toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],['image'],

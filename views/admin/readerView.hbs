@@ -10,35 +10,21 @@
                             <thead>
                                 <tr>
                                     <th>Họ Tên</th>
-                                    <th>Ngày Sinh</th>
-                                    <th>Giới tính</th>
-                                    <th>Ngày đăng ký</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Email</th>
                                     <th>Ngày còn lại</th>
                                 </tr>
                                 
                             </thead>
                             <tbody>
+                                {{#each this.users}}
                                 <tr>
-                                    <td>Lê Thanh Tâm</td>
-                                    <td>09/06/1997</td>
-                                    <td>Nam</td>
-                                    <td>30/4/2019</td>
-                                    <td>5</td>
+                                    <td><a href="/admin/editsub/{{ID}}">{{Name}}</a></td>
+                                    <td>{{Birthday}}</td>
+                                    <td>{{Email}}</td>
+                                    <td>{{Remain}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Từ Kim Huỳnh Anh</td>
-                                    <td>11/03/1998</td>
-                                    <td>Nữ</td>
-                                    <td>29/4/2019</td>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <td>Nguyễn Văn Tèo</td>
-                                    <td>02/03/1996</td>
-                                    <td>Nam</td>
-                                    <td>27/04/2019</td>
-                                    <td>2</td>
-                                </tr>
+                                {{/each}}
                             </tbody>
                         </table>
                     </div>

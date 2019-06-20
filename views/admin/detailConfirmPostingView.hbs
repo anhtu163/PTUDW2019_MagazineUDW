@@ -8,21 +8,22 @@
                             <strong>Duyệt bài</strong> 
                         </div>
                         <div class="card-body card-block">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">    
+                             <form action="" method="post"  class="form-horizontal">     
+                                {{#each this.detail}}   
                                 <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="author-input" class=" form-control-label">Tác giả</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="author-input" name="disabled-input" placeholder="Lê Thanh Tâm" disabled="" class="form-control">
-                                        </div>
-                                </div>          
+                                    <div class="col col-md-3">
+                                        <label for="title-input" class=" form-control-label">Tác giả</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="title-input" name="creator" value="{{Name}}" class="form-control" readonly>
+                                    </div>
+                                </div>  
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="title-input" class=" form-control-label">Tiêu đề</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="title-input" name="disabled-input" placeholder="Tiêu đề" disabled="" class="form-control">
+                                        <input type="text" id="title-input" name="title" value="{{Title}}" class="form-control" readonly>
                                         <small class="form-text text-muted">Tiêu đề không dài quá 50 từ</small>
                                     </div>
                                 </div>
@@ -32,55 +33,52 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <select name="select" id="select" class="form-control">
-                                            <option value="0">Phim hot</option>
-                                            <option value="1">Quân Sự</option>
-                                            <option value="2">Thế giới</option>
-                                            <option value="3">Thể thao</option>
+                                            <option value="{{CatID}}">{{CatName}}</option>
+                                            {{/each}}
+                                            {{#each this.category}}
+                                                <option value="{{CatID}}">{{CatName}}</option>
+                                            {{/each}}
+                                            {{#each this.detail}}
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="summary-input" class=" form-control-label">Tóm tắt nội dung</label>
+                                        <label for="summary-input" class=" form-control-label" >Tóm tắt nội dung</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <textarea name="summary-input" disabled id="textarea-input" rows="6" placeholder="Nội dung tóm tắt cần được hiệu chỉnh" class="form-control"></textarea>
+                                        <textarea readonly name="sumContent" id="textarea-input" rows="6" class="form-control">{{SumContent}}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="content-input" class=" form-control-label">Nội dung bài viết</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <textarea name="content-input" disabled id="textarea-input" rows="13" placeholder="Nội dung bài viết" class="form-control"></textarea>
+                                <div style="width:90%; background:rgb(245, 240, 240); margin:auto; ">
+                                        {{{Content}}}
                                     </div>
                                 </div>
-                                
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="url-input" disabled class=" form-control-label">Link Youtube</label>
+                                        <label for="avatar" class=" form-control-label" >Link hình ảnh</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="url-input" disabled name="text-input" placeholder="link Youtube" class="form-control">
+                                        <input type="text" readonly id="avatar" value="{{Avatar}}" name="avatar"> 
                                     </div>
                                 </div>
-                                
-                                
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="file-multiple-input" class=" form-control-label">File hình ảnh</label>
+                                        <label for="datePublish" class=" form-control-label">Ngày xuất bản</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="file" disabled id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"> 
+                                        <input type="date" data-date-format="yyyy-mm-dd" name="datePublish">
                                     </div>
                                 </div>
+                                <textarea name="trick" id="trick" style="display:none;"></textarea>
                                 <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="note-input" class=" form-control-label">Ghi chú:</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <textarea id="note-input" rows="5" name="text-input" placeholder="Mô tả cho tác giả" class="form-control"></textarea>
+                                            <textarea id="note-input" rows="5" name="note" placeholder="Mô tả cho tác giả" class="form-control"></textarea>
                                         </div>
                                 </div>
                                 <div class="row form-group">
@@ -91,26 +89,35 @@
                                         <div class="form-check">
                                             <div class="radio">
                                                 <label for="radio1" class="form-check-label ">
-                                                    <input type="radio" id="radio1" name="publish-checkbox" value="option1" class="form-check-input">Xuất bản
+                                                    <input type="radio" id="radio1" name="status" value="1" class="form-check-input">Đã duyệt
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label for="radio2" class="form-check-label ">
-                                                    <input type="radio" id="radio2" name="publish-checkbox" value="option2" class="form-check-input">Chưa xuất bản
+                                                    <input type="radio" id="radio2" name="status" value="2" class="form-check-input">Chưa duyệt
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio3" class="form-check-label ">
+                                                    <input type="radio" id="radio3" name="status" value="3" class="form-check-input">Đã từ chối
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer">
+                                    <button type="submit" id="saveButt" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                    </button>
+                                    <button type="button" id="deletePost" class="btn btn-primary btn-sm">
+                                        <a href="/admin/delete/{{PostID}}">Delete</a> 
+                                    </button>
+                                    <button type="reset" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-ban"></i> Reset
+                                    </button>
+                                </div>
+                                {{/each}}
                             </form>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-sm">
-                                <i class="fa fa-dot-circle-o"></i> Duyệt
-                            </button>
-                            <button type="reset" class="btn btn-danger btn-sm">
-                                <i class="fa fa-ban"></i> Từ chối
-                            </button>
                         </div>
                     </div>
                 </div>  

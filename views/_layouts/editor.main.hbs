@@ -49,7 +49,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="/">
+                            <a>
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
@@ -76,45 +76,14 @@
                                 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="/images/icon/avatar.jpg" alt="Huỳnh Anh" />
-                                        </div>
+                                        {{#if isAuthenticated}}
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Huỳnh Anh</a>
+                                            <h5 class="name">
+                                                <a href="#">{{authUser.Name}}</a>
+                                            </h5>
+                                            <span class="email">{{authUser.Email}}</span>
                                         </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="/images/icon/avatar.jpg" alt="Huỳnh Anh" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Huỳnh Anh</a>
-                                                    </h5>
-                                                    <span class="email">glenntu163@gmail.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Tài khoản</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Cài đặt</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Đổi mật khẩu</a>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Đăng xuất</a>
-                                            </div>
-                                        </div>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +121,7 @@
 
     <!-- Main JS-->
     <script src="/js/main.js"></script>
-    <script>
+    {{!-- <script>
         $(document).ready(function(){
             $('#tbl-confirm-posting tr').click(function(){
                 var trSelected = $(this).data();
@@ -160,7 +129,7 @@
                 window.location.replace("/editor/detailConfirm");
             })
         })
-    </script>
+    </script> --}}
   
 <script>
     var toolbarOptions = [

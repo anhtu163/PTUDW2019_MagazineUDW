@@ -1,57 +1,220 @@
-<!-- MAIN CONTENT-->
-    <div class="main-content">
-        <div class="section__content section__content--p30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <h2 class="title-1 m-b-25"> Danh sách bài đăng </h2>
-                        <div class="table-responsive table--no-card m-b-40">
-                            <form action="/editPosting" method="GET">
-                                <table class="table table-borderless table-striped table-earning" id="tbl-posting">
-                                <thead>
-                                    <tr>
-                                        <th >Tên bài</th>
-                                        <th>Ngày đăng</th>
-                                        <th>thể loại</th>
-                                        <th>Xuất bản</th>
-                                    </tr>
-                                    
-                                </thead>
-                                <tbody>
-                                    {{#each this.news}}
-                                    <tr>
-                                        <td>{{Title}}</td>
-                                        <td>{{Date}}</td>
-                                        <td>{{CatName}}</td>
-                                        <td><input type="checkbox" disabled></td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="row" >
-                    <div class="col-md-12" >
-                        <div class="copyright">
-                            <p>Copyright © 2019 Group38</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END MAIN CONTENT-->
-    <!-- END PAGE CONTAINER-->
-    <script>
-$(document).ready(function(){
-    $('#tbl-posting tr').click(function(){
-        var trSelected = $(this).data();
-        localStorage.setItem('trSelected', trSelected);
-        window.location.replace("/editpost");
-    });
-    
-})
-</script>
+	<div class="site-main-container">
+		<!-- Start top-post Area -->
+		<section class="top-post-area pt-10">
+			<div class="container no-padding">
+				<div class="row small-gutters">
+					{{#each this.news1}}
+					<div class="col-lg-8 top-post-left">
+						<div class="feature-image-thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="{{Avatar}}" style="height: 545px; max-width: 100%;" alt="">
+						</div>
+						<div class="top-post-details">
+							<ul class="tags">
+								
+								
+								<li><a href="#">{{CatName}}</a></li>
+								
+								
+								
+							</ul>
+							<a href="/news/{{PostID}}/post">
+								<h3>{{Title}}</h3>
+							</a>
+							<ul class="meta">
+								<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+								<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a></li>
+								<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem</a></li>
+							</ul>
+						</div>
+					</div>
+				
+					{{/each}}
+					<div class="col-lg-4 top-post-right">
+						{{#each top1}}
+						<div class="single-top-post">
+							<div class="feature-image-thumb relative">
+								<div class="overlay overlay-bg"></div>
+								<img class="img-fluid" style="height: 265px;" src="{{Avatar}}" alt="">
+							</div>
+							<div class="top-post-details">
+								<ul class="tags">
+									<li><a href="#">{{CatName}}</a></li>
+								</ul>
+								<a href="news/{{PostID}}/post">
+									<h4>{{Title}}</h4>
+								</a>
+								<ul class="meta">
+									<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+									<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a></li>
+									<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem</a></li>
+								</ul>
+							</div>
+						</div>
+						{{/each}}
+						{{#each top2}}
+						<div class="single-top-post mt-10">
+							<div class="feature-image-thumb relative">
+								<div class="overlay overlay-bg"></div>
+								<img class="img-fluid" style="height: 265px;" src="{{Avatar}}" alt="">
+							</div>
+							<div class="top-post-details">
+								<ul class="tags">
+									<li><a href="#">{{CatName}}</a></li>
+								</ul>
+								<a href="news/{{PostID}}/post">
+									<h4>{{Title}}</h4>
+								</a>
+								<ul class="meta">
+									<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+									<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a></li>
+									<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem</a></li>
+								</ul>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<!-- End top-post Area -->
+		<!-- Start latest-post Area -->
+		<section class="latest-post-area pb-120">
+			<div class="container no-padding">
+				<div class="row">
+					<div class="col-lg-8 post-list">
+						<!-- Start latest-post Area -->
+						<div class="latest-post-wrap">
+							<h4 class="cat-title">Tin tức mới nhất</h4>
+							{{#each this.news}}
+							<div class="single-latest-post row align-items-center">
+								<div class="col-lg-5 post-left">
+									<div class="feature-img relative">
+										<div class="overlay overlay-bg"></div>
+										<img  class="img-fluid" style="height: 200px; width: 500px;"   src="{{Avatar}}" alt="">
+									</div>
+									<ul class="tags">
+										<li><a href="#">{{CatName}}</a></li>
+									</ul>
+								</div>
+								<div class="col-lg-7 post-right">
+									<a href="news/{{PostID}}/post">
+										<h4>{{Title}}</h4>
+									</a>
+									<ul class="meta">
+										<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+										<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a>
+										</li>
+										<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem</a></li>
+									</ul>
+									<p class="excert">
+										{{SumContent}}
+									</p>
+								</div>
+							</div>
+							{{/each}}
+							
+						</div>
+						<!-- End latest-post Area -->
+
+						<!-- Start banner-ads Area -->
+						<div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
+							<img class="img-fluid" src="/img/banner-ad.jpg" alt="">
+						</div>
+						<!-- End banner-ads Area -->
+						<!-- Start popular-post Area -->
+						<div class="popular-post-wrap">
+							<h4 class="title">Top 10 theo chuyên mục</h4>
+							
+							<div class="row mt-20 medium-gutters">
+								{{#each top10}}
+								<div class="col-lg-6 single-popular-post">
+									<div class="feature-img-wrap relative">
+										<div class="feature-img   relative" style="height: 200px; width: 350px; ">
+											
+												
+											<div class="overlay overlay-bg"></div>
+											<img class="img-fluid"  style="height: 200px; width: 350px; " src="{{Avatar}}" alt="">
+										</div>
+										<ul class="tags">
+											<li><a href="#">{{CatName}}</a></li>
+										</ul>
+									</div>
+									<div class="details">
+										<a href="/news/{{PostID}}/post">
+											<h4>{{Title}}</h4>
+										</a>
+										<ul class="meta">
+											<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+											<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a></li>
+											<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem</a></li>
+										</ul>
+										<p class="excert">
+											{{SumContent}}
+										</p>
+									</div>
+								</div>
+								{{/each}}
+								
+							</div>
+						</div>
+					
+					</div>
+					<div class="col-lg-4">
+						<div class="sidebars-area">
+							<div class="single-sidebar-widget editors-pick-widget">
+								<h6 class="title">Phổ biến</h6>
+								<div class="editors-pick-post">
+									{{#each bestView}}
+									<div class="feature-img-wrap relative">
+										<div class="feature-img relative">
+											<div class="overlay overlay-bg"></div>
+											<img class="img-fluid" src="{{Avatar}}" alt="">
+										</div>
+										<ul class="tags">
+											<li><a href="#">{{CatName}}</a></li>
+										</ul>
+									</div>
+									<div class="details">
+										<a href="/news/{{PostID}}/post">
+											<h4 class="mt-20">{{Title}}</h4>
+										</a>
+										<ul class="meta">
+											<li><a href="#"><span class="lnr lnr-user"></span>{{Name}}</a></li>
+											<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a></li>
+											<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem </a></li>
+										</ul>
+										<p class="excert">
+											{{SumContent}}</p>
+									</div>
+									{{/each}}
+									<div class="post-lists">
+										{{#each view }}
+										<div class="single-post d-flex flex-row">
+											<div class="thumb">
+												<img style="height: 100px; width:150px; " src="{{Avatar}}" alt="">
+											</div>
+											<div class="detail">
+												<a href="/news/{{PostID}}/post">
+													<h6>{{Title}}</h6>
+												</a>
+												<ul class="meta">
+													<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{Date}}</a></li>
+													<li><a href="#"><span class="lnr lnr-bubble"></span>{{ViewNum}} Lượt xem</a></li>
+												</ul>
+											</div>
+										</div>
+										{{/each}}
+										
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End latest-post Area -->
+	</div>

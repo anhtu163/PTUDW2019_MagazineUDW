@@ -11,34 +11,23 @@
                                 <tr>
                                     <th>Họ Tên</th>
                                     <th>Ngày Sinh</th>
-                                    <th>Giới tính</th>
+                                    <th>Email</th>
                                     <th>Cấp bậc</th>
                                     <th>Chuyên mục</th>
                                 </tr>
                                 
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Lê Thanh Tâm</td>
-                                    <td>09/06/1997</td>
-                                    <td>Nam</td>
-                                    <td>Biên tập viên</td>
-                                    <td>Phim hot, Bóng đá, Thế giới</td>
+                                {{#each this.users}}
+                                <tr >
+                                    <td><a href="/admin/editemployee/{{ID}}">{{Name}}</a></td>
+                                    <td>{{Birthday}}</td>
+                                    <td>{{Email}}</td>
+                                    <td>{{RoleName}}</td>
+                                    <td>{{CatName}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Từ Kim Huỳnh Anh</td>
-                                    <td>11/03/1998</td>
-                                    <td>Nữ</td>
-                                    <td>Phóng viên</td>
-                                    <td>Thời trang, Công nghệ.</td>
-                                </tr>
-                                <tr>
-                                    <td>Nguyễn Văn Tèo</td>
-                                    <td>02/03/1996</td>
-                                    <td>Nam</td>
-                                    <td>Biên tập viên</td>
-                                    <td>Phim hot, Bóng đá, Thế giới</td>
-                                </tr>
+                                {{/each}}
+                                
                             </tbody>
                         </table>
                     </div>

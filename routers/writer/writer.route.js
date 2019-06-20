@@ -1,15 +1,23 @@
 var express = require('express');
 var cate = require('../../models/category.model');
 var news = require('../../models/news.model');
+var auth = require('../../middlewares/auth');
 
 
 
 
 var router = express.Router();
 
-router.get('/',(req, res)=>{
+router.get('/',auth,(req, res)=>{
 
-    res.render('writer/postingView');
+    if (req.user.Role == 2) {
+        res.render('admin_home', {
+            layout: 'writer.main.hbs',
+            layoutsDir: 'views/_layouts'
+        });
+    } else {
+        res.redirect('/');
+    }
 })
 
 router.get('/posting',(req, res, next)=>{
@@ -17,7 +25,9 @@ router.get('/posting',(req, res, next)=>{
     p.then((row)=>{
 
         res.render('writer/postingView', {
-            category: row
+            category: row,
+            layout: 'writer.main.hbs',
+                layoutsDir: 'views/_layouts'
         })
     }).catch(err => {
         console.log(err);
@@ -38,13 +48,16 @@ today = yyyy + '-' + mm + '-' + dd;
         CatID: req.body.select,
         ViewNum: 0,
         SumContent: req.body.sumContent,
-        CreatorID: 1,
+        CreatorID: req.user.ID,
         //Content: req.body.content.innerHTML
         Content: req.body.trick
      }
     news.addNews(post);
     console.log(post.Content);
-    res.render('writer/postingView');
+    res.render('writer/postingView',{
+        layout: 'writer.main.hbs',
+            layoutsDir: 'views/_layouts'
+    });
 
 })
 
@@ -55,7 +68,9 @@ router.get('/postlist/:id',(req, res, next)=>{
     Promise.all([p,p2]).then(([row, row2])=>{
         res.render('writer/postListView', {
             new: row,
-            newStt: row2
+            newStt: row2,
+            layout: 'writer.main.hbs',
+                layoutsDir: 'views/_layouts'
         })
     }).catch(err => {
         console.log(err);
@@ -71,7 +86,9 @@ router.get('/editpost/:id', (req, res, next)=>{
         {
             res.render('writer/editPostingView', {
                 detail: row,
-                category: row2
+                category: row2,
+                layout: 'writer.main.hbs',
+            layoutsDir: 'views/_layouts'
             })
         }
         
@@ -82,11 +99,16 @@ router.get('/editpost/:id', (req, res, next)=>{
 
 router.post('/editpost/:id', (req, res, next)=>{
     var id = req.params.id;
-    var d = new Date();
-    console.log(req.body.select);
+    var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
     var entity = {
+        PostID: id,
         Title: req.body.title,
-        Date: d.getDate(),
+        Date: today,
         Avatar: "",
         IsPublish: 2,
         CatID: req.body.select,
@@ -95,11 +117,9 @@ router.post('/editpost/:id', (req, res, next)=>{
         ViewNum: 0,
         CreatorID: 1
     }
-    news.updateNews(entity).then(rows=>{
-        console.log(req.body.select);
-        res.redirect("/writer/postlist/2");
-        //console.log(entity);
-    });
+    news.updateNews(entity);
+    console.log(entity);
+    res.redirect("/writer/postlist/2");
    
 });
 

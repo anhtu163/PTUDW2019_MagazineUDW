@@ -1,0 +1,35 @@
+
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
+<div class="site-main-container" style="margin: 100px;">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-5 ">
+            
+            <form novalidate id="formProfile" class="form-signin"  method="POST">
+                <h1 class="h3 mb-3 font-weight-normal">Cập nhật thông tin cá nhân</h1>
+                
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input style="margin: 5px;" type="text" value = "{{currentUser.Email}}" id="inputEmail" name="email" class="form-control"
+                    placeholder="Email address" readonly>
+                <label for="inputPassword" class="sr-only">Name</label>
+                <input style="margin: 5px;" type="text" value = "{{currentUser.Name}}"  id="name" name="name" class="form-control"
+                    placeholder="Name" >
+                    <label for="inputPassword" class="sr-only">NickName</label>
+                    <input style="margin: 5px;" type="text" value="{{currentUser.NickName}}" id="name" name="nickname" class="form-control"
+                        placeholder="NickName">
+                <label for="txtDOB" class="sr-only" >Date of birth</label>
+                <input type="text" value="{{currentUser.Birthday}}" class="form-control" id="txtDOB" name="dob">
+               
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit">LƯU</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+            </form>
+        </div>
+    </div>
+</div>

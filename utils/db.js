@@ -24,6 +24,7 @@ module.exports = {
             });
         });
     },
+
     add: (tableName, entity) => {
         return new Promise((resolve, reject) => {
             var sql = `insert into ${tableName} set ?`;
@@ -74,4 +75,4 @@ module.exports = {
             });
         });
     },
-}
+};

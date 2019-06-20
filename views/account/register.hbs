@@ -1,0 +1,81 @@
+{{#section 'css' }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+
+{{#section 'js'}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script>
+
+        $(function(){
+            $('#formSignup').validate({
+                rules:{
+                    email:{
+                        required: true,
+                        remote: {
+                            url: '/account/is-available',
+                        }
+                    },
+                    pass: {
+                        required: true,
+                        minlength: 6
+
+                    },
+                    repass: {
+                        required: true,
+                        equalTo: $('[name = "pass"]')
+                    },
+                },
+                messages:{
+                    email:{
+                        required: "Vui lòng nhập email.",
+                        remote: 'Email này đã tồn tại, bạn vui lòng nhập email khác.'
+                    },
+                    pass: {
+                        
+                        minlength: 'Mật khẩu phải có ít nhất 6 ký tự.',
+                        required: 'Vui lòng nhập mật khẩu.',
+                    },
+                    repass: {
+                        required: 'Mật khẩu của bạn không khớp.',
+                        equalTo: 'Mật khẩu của bạn không khớp.'
+                    },
+
+                },
+                errorElement: 'small',
+                errorClass: 'help-block text-danger',
+                validClass: 'is-valid',
+                highlight: function (e) {
+                    $(e).removeClass('is-valid').addClass('is-invalid');
+                },
+                unhighlight: function (e) {
+                    $(e).removeClass('is-invalid').addClass('is-valid');
+                }
+            }).form();
+        })
+
+    </script>
+
+{{/section}}
+
+<div class="site-main-container" style="margin: 100px;">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-5 ">
+            <form novalidate id="formSignup" class="form-signin" action="/account/register" method="POST">
+                <h1 class="h3 mb-3 font-weight-normal">ĐĂNG KÝ</h1>
+                <label for="inputEmail" class="sr-only">Email </label>
+                <input style="margin: 5px;" type="text" id="inputEmail" name="email" class="form-control"
+                    placeholder="Email address" required>
+                <label for="inputPassword" class="sr-only">Mật khẩu</label>
+                <input style="margin: 5px;" type="password" id="inputPassword" name="pass" class="form-control"
+                    placeholder="Password" required >
+                <label for="inputRePassword" class="sr-only">Nhập lại mật khẩu</label>
+                <input style="margin: 5px;" type="password" id="inputRePassword" name="repass" class="form-control" placeholder="RePassword"
+                        required>
+               
+                <button class="btn btn-lg btn-primary btn-block" type="submit">ĐĂNG KÝ</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+            </form>
+        </div>
+    </div>
+</div>

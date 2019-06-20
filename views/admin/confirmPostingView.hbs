@@ -3,40 +3,31 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-9">
-                    <h2 class="title-1 m-b-25">Danh sách bài đã đăng</h2>
+                    <h2 class="title-1 m-b-25">Danh sách bài đăng</h2>
                     <div class="table-responsive table--no-card m-b-40">
                         <form action="/detailConfirm" method="GET">
-                            <table class="table table-borderless table-striped table-earning" id="tbl-confirm-posting">
+                           <table class="table table-borderless table-striped table-earning" id="tbl-posting">
                                 <thead>
                                     <tr>
-                                        <th>Tên bài</th>
+                                        <th >Tên bài</th>
                                         <th>Ngày đăng</th>
                                         <th>thể loại</th>
-                                        <th>Người viết</th>
+                                        <th>Xuất bản</th>
                                     </tr>
-                                    <tr>
-                                        <td>Bom tấn "Avengers: End Game".</td>
-                                        <td>21/04/2019</td>
-                                        <td>Phim Hot</td>
-                                        <td>Tony Tèo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tèo Em.</td>
-                                        <td>26/04/2019</td>
-                                        <td>Phim Hot</td>
-                                        <td>Thanh Tâm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phim "Con rết người"</td>
-                                        <td>26/04/2019</td>
-                                        <td>Phim kinh dị</td>
-                                        <td>Huỳnh Anh</td>
-                                    </tr>
+                                    
                                 </thead>
                                 <tbody>
-                                    <!--Bổ sung sau-->
+                                    {{#each this.post}}
+                                    <tr>
+                                        <td><a href="/admin/confirm/{{PostID}}">{{Title}}</a></td>
+                                        <td>{{Date}}</td>
+                                        <td>{{CatName}}</td>
+                                        <td>{{StatusName}}</td>
+                                    </tr>
+                                    {{/each}}
                                 </tbody>
-                        </table>
+                            </table>
+                        </form>
                     </div>
                 </div>
             </div>
